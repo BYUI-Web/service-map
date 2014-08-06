@@ -1,0 +1,656 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+
+	<title>Brigham Young University - Idaho</title>
+	<meta name="description" content="Brigham Young University - Idaho">
+    <meta name="author" content="Brigham Young University - Idaho">
+
+	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<!-- favicon section for all device types -->
+	<!-- For iPhone 4 with high-resolution Retina display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/generated-framework/images/apple-touch-icon-114x114-precomposed.png">
+	<!-- For first-generation iPad: -->
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/generated-framework/images/apple-touch-icon-72x72-precomposed.png">
+	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+	<link rel="apple-touch-icon-precomposed" href="/generated-framework/images/apple-touch-icon-precomposed.png">
+	<link rel="icon" href="/generated-framework/images/favicon.ico" />
+    
+    <!-- Blueprint and Regressive/Progressive Adaptive scripts for older/cross-browser compliance -->
+	<link rel="stylesheet" href="/generated-framework/css/print.css" type="text/css" media="print"> 
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection">
+	<![endif]-->
+
+	<!-- Responsive Rollouts -->
+	<link rel="stylesheet" href="/generated-framework/css/global.css" type="text/css" media="screen, projection">
+
+	<!-- Global Stylesheet -->
+	<link rel="stylesheet" href="/generated-framework/css/main.css" type="text/css" media="screen, projection">
+
+
+
+	<!-- Modernizr script, for js and feature detection -->
+	<script src="/generated-framework/js/libs/modernizr-2.0.6.min.js"></script>
+	
+	<!-- jQuery -->
+	<script id="jQueryLoad" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/generated-framework/js/libs/bootstrap.min.js"></script>
+	
+</head>
+
+<body id="Content"><!-- Body tag must have page template name in it to inherit template-specific css rules -->
+            <header role="banner" class="global-header">
+              <nav role="navigation" class="site-navigation navbar navbar-inverse">
+                <div class="container">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".site-navbar-collapse">
+                      <span class="sr-only">Toggle Navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div> 
+                  <div class="navbar-collapse site-navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                      <li class="dropdown">
+                        <a href="#administrative" class="dropdown-toggle" data-toggle="dropdown">
+                          University <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="http://www.byui.edu/admissions">Apply</a></li>
+                          <li><a href="http://www.byui.edu/about/">About BYUI</a></li>
+                          <li><a href="http://www.byui.edu/contact-us/">Contact</a></li>
+                          <li><a href="http://www.byui.edu/financial-aid/">Financial Aid</a></li>
+                          <li><a href="http://www.byui.edu/student-support/ask-byui">Information Desk</a></li>
+                          <li><a href="http://www.byui.edu/president">President's Office</a></li>
+                          <li><a href="http://www.byui.edu/student-records/">Registration</a></li>
+                          <li><a href="http://www.byui.edu/university-relations">University Relations</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#academic" class="dropdown-toggle" data-toggle="dropdown">
+                          Academics <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="http://www.byui.edu/student-records/academic-deadlines">Academic Schedule</a></li>
+                          <li><a href="http://www.byui.edu/academic-discovery-center">Advising</a></li>
+                          <li><a href="http://www.byui.edu/directories/colleges-and-departments">Colleges and Departments</a></li>
+                          <li><a href="http://www.byui.edu/catalog/">Course Catalog</a></li>
+                          <li><a href="http://www.byui.edu/about/defining-aspects/learning-model">Learning Model</a></li>
+                          <li><a href="http://www.byui.edu/testing-services">Testing Center</a></li>
+                          <li><a href="http://www.byui.edu/academic-support-centers/tutoring-center">Tutoring</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#student-life" class="dropdown-toggle" data-toggle="dropdown">
+                          Living <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="http://www.byui.edu/activities">Activities</a></li>
+                          <li><a href="http://www.byui.edu/food-services/">Food</a></li>
+                          <li><a href="http://www.byui.edu/activities/get-involved">Get Involved</a></li>                    
+                          <li><a href="http://www.byui.edu/health-center">Health and Wellness</a></li>
+                          <li><a href="http://www.byui.edu/student-honor-office">Honor Code</a></li>      
+                          <li><a href="http://www.byui.edu/housing/">Housing</a></li>
+                          <li><a href="http://www.byui.edu/human-resources/employment-opportunities/student-employment">Student Employment</a></li>
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#services" class="dropdown-toggle" data-toggle="dropdown">
+                          Services <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="http://www.byui.edu/ask/live-chat/?cid=hli:109">Ask BYUI</a></li>
+                          <li><a href="http://www.byui.edu/disabilities/">Disability Services</a></li>
+                          <li><a href="http://www.byui.edu/international-services">International Services</a></li>
+                          <li><a href="http://www.lib.byui.edu/">Library</a></li>
+                          <li><a href="http://www.byui.edu/university-operations/security-and-safety/parking-services">Parking</a></li>
+                          <li><a href="http://www.byui.edu/university-operations/security-and-safety">Security</a></li>
+                          <li><a href="http://www.byui.edu/information-technology">Technical Help</a></li>
+                          <li><a href="http://www.byuistore.com/">University Store</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#find" class="dropdown-toggle" data-toggle="dropdown">
+                          Find <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="http://www.byui.edu/directories/">A-Z Directory</a></li>
+                          <li><a href="https://web.byui.edu/BulletinBoard">Bulletin Board</a></li>
+                          <li><a href="http://calendar.byui.edu/">Calendar</a></li>
+                          <li><a href="http://www.byui.edu/maps">Map</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="navbar-right">
+                      <a href="https://web.byui.edu/services/login?RedirectURL=https://my.byui.edu/?cid=hli:111" class="sign-in btn btn-primary navbar-btn">Sign In</a>
+                    </div>
+                    <form method="get" action="http://search.byui.edu/search?" _lpchecked="1"  role="search" class="navbar-form form-horizontal container visible-xs visible-sm">
+                      <div class="search input-group">
+                        <input type="text" class="form-control" name="q" placeholder="Search" alt="Search the BYU-I website" />
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-success">
+                          <span aria-hidden="true" class="icon icon-magnifying-glass"></span>
+                          <span class="sr-only">Go</span>
+                        </button>
+                      </span>
+                      <input type="hidden" name="site" value="default_collection"/>
+                      <input type="hidden" name="client" value="byui_frontend"/>
+                      <input type="hidden" name="output" value="xml_no_dtd"/>
+                      <input type="hidden" name="proxystylesheet" value="byui_frontend"/>
+                      <input type="hidden" name="proxyreload" value="0"/>
+                      </div>
+                    </form>
+                  </div><!--/.navbar-collapse -->
+                </div>
+              </nav>
+
+              <!-- Main jumbotron for a primary marketing message or call to action -->
+              <div class="site-banner">
+                <div class="container">
+                  <a class="site-logo navbar-brand" href="/generated-framework/" title="BYU-Idaho">
+                    <span aria-hidden="true" class="icon icon-byui-logo">
+                      <span class="sr-only">BYU-Idaho</span>
+                    </span>
+                  </a>
+                  <form method="get" action="http://search.byui.edu/search?" _lpchecked="1"  role="search" class="desktop-search form-horizontal container hidden-xs hidden-sm row">
+                    <div class="search input-group">
+                      <input type="text" class="form-control" name="q" placeholder="Search" alt="Search the BYU-I website" />
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-success">
+                          <span aria-hidden="true" class="icon icon-magnifying-glass"></span>
+                          <span class="sr-only">Go</span>
+                        </button>
+                      </span>
+                      <input type="hidden" name="site" value="default_collection"/>
+                      <input type="hidden" name="client" value="byui_frontend"/>
+                      <input type="hidden" name="output" value="xml_no_dtd"/>
+                      <input type="hidden" name="proxystylesheet" value="byui_frontend"/>
+                      <input type="hidden" name="proxyreload" value="0"/>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </header>
+
+	<div class="global_outside page_content">	
+		<section id="page_content" class="container">
+
+			
+<nav id="breadcrumbs" class="span-24">
+    <a href="/generated-framework/">BYU-Idaho Home</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+    <a href="activities">Activities</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+    <a href="activities/resources">Resources</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+    <a href="activities/resources/exercise-facilities-and-play-fields">Exercise Facilities and Play Fields</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+    <a href="activities/resources/exercise-facilities-and-play-fields/hart-building">Hart Building</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+    <a href="activities/resources/exercise-facilities-and-play-fields/hart-building/swim-suit-policy">Swim Suit Policy</a>
+</nav>
+<div class="span-6">
+<nav id="local_nav" class="span-6">
+    <h2 class="box_header">
+        <a href="">Housing &amp; Student Living</a>
+    </h2>
+    <div id="accordion_control" class="clear">
+        <span class="collapse">Collapse All ( - )</span>
+    </div>
+    <ul class="accordion">
+        <li class="folder">
+            <a class="lvl_1" href="">On-Campus Housing Options</a>
+            <span class="expander">+</span>
+            <ul style="display: none; ">
+                <li>
+                    <a class="lvl_2" href="https://web.byui.edu/housingasp">Start/View Your Contract</a>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Men's On-Campus</a>
+                    <span class="expander">+</span>
+                    <ul style="display: none; ">
+                        <li>
+                            <a class="lvl_3" href="">Biddulph Hall</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="">Chapman Hall</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="">NEW! Lamprecht Hall</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Women's On-Campus</a>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">University Village (Student Family)</a>
+                    <span class="expander">+</span>
+                    <ul style="display: none; ">
+                        <li>
+                        <a class="lvl_3" href="">Apply for University Village</a>
+                        </li>
+                        <li>
+                        <a class="lvl_3" href="">Flat (2 Bedroom)</a>
+                        </li>
+                        <li>
+                        <a class="lvl_3" href="">Townhouse (Two-Bedroom)</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="">Frequently Asked Questions</a>
+                            <span class="expander">+</span>
+                            <ul class="accordLvl4" style="display: none; ">
+                                <li>
+                                    <a class="lvl_4" href="">Occupancy Guidelines</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="folder">
+            <a class="lvl_1" href="https://web.byui.edu/TIS/search">Single Student Approved Housing</a>
+            <span class="expander">+</span>
+            <ul style="display: none; ">
+                <li>
+                    <a class="lvl_2" href="">Approved Housing: Interactive Tool</a>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">About Approved Housing</a>
+                    <span class="expander">+</span>
+                    <ul style="display: none; ">
+                        <li>
+                            <a class="lvl_3" href="">Apartment Living Standards</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="">Frequently Asked Questions</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Off-Campus Parking</a>
+                    <span class="expander">+</span>
+                    <ul style="display: none; ">
+                        <li>
+                            <a class="lvl_3" href="">Rexburg Parking Ordinance</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Frequently Asked Questions</a>
+                </li>
+            </ul>
+        </li>
+        <li class="folder">
+            <a class="lvl_1" href="">Student-Family and Community</a>
+            <span class="expander">+</span>
+            <ul style="display: none; ">
+                <li>
+                    <a class="lvl_2" href="">University Village </a>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Community Housing List</a>
+                </li>
+            </ul>
+        </li>
+        <li class="folder">
+            <a class="lvl_1" href="">Information, Support and Services</a>
+            <span class="expander">+</span>
+            <ul style="display: none; ">
+                <li>
+                    <a class="lvl_2" href="">Managers &amp; Owners</a>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">View All Policies and Information </a>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Documents for Owners and Managers</a>
+                </li>
+                <li>
+                    <a class="lvl_2" href="https://web.byui.edu/ApprovedHousing/Management/Logon.aspx?ReturnUrl=/ApprovedHousing/Management/default.aspx">Tenant Information System (TIS)</a>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Open Management Positions</a>
+                </li>
+            </ul>
+        </li>
+        <li class="folder">
+            <a class="lvl_1" href="">Information, Support and Services</a>
+        </li>
+        <li class="folder">
+            <a class="lvl_1" href="">Student Living</a>
+            <span class="expander">+</span>
+            <ul style="display: none; ">
+                <li>
+                    <a class="lvl_2" href="">Students </a>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Apartment Managers</a>
+                    <span class="expander">+</span>
+                    <ul style="display: none; ">
+                        <li>
+                            <a class="lvl_3" href="">Manager Forums</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Ward &amp; Stake Leaders</a>
+                    <span class="expander">+</span>
+                    <ul style="display: none; ">
+                        <li>
+                            <a class="lvl_3" href="">Student Living for Bishops</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="">Home Evening Lessons</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Instructor Reflection</a>
+                </li>
+            </ul>
+        </li>
+        <li class="folder">
+            <a class="lvl_1" href="">About</a>
+            <span class="expander">+</span>
+            <ul style="display: none; ">
+                <li>
+                    <a class="lvl_2" href="http://web.byui.edu/directory/">Related Campus Offices &amp; Services</a>
+                    <span class="expander">+</span>
+                    <ul style="display: none; ">
+                        <li>
+                            <a class="lvl_3" href="http://www.byui.edu/AccountingOffice">Accounting &amp; Bursar's Office</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="http://www.byui.edu/Admissions/">Admissions Office</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="http://www.byui.edu/helpdesk/">Computer Help Desk</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="http://www.byui.edu/deanofstudents">Dean of Students</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="http://www.byui.edu/FinancialAid/">Financial Aid/Scholarships</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="http://www.byui.edu/foodservices">Food Services</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="http://www.byui.edu/healthcenter/">Health Center</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="http://www.byui.edu/HonorCodeOffice">Student Honor Office</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="http://www.byui.edu/StudentEmployment/">Student Employment</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="http://www.byui.edu/spencer/local/eccldsp.htm">Ward &amp; Stake Locator</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Meet Our Employees</a>
+                    <span class="expander">+</span>
+                    <ul style="display: none; ">
+                        <li>
+                            <a class="lvl_3" href="">On-Campus Managers</a>
+                        </li>
+                        <li>
+                            <a class="lvl_3" href="">University Village Management</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Contact Us</a>
+                </li>
+                <li>
+                    <a class="lvl_2" href="">Site Map</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div id="contact_info">
+        <div id="location">
+            <span class="contact_header">Student Activities Center - Social</span>
+            <span class="contact_text">MC 101</span>
+            <span class="contact_text">208-496-7352</span>
+        </div>
+    </div>
+
+    
+
+</nav><!-- END LOCAL_NAV -->
+
+<div id="highlighted_links" editfieldname="HighlightedLinks" editfieldrequired="false">
+    <h2 class="box_header">University Village Links</h2>
+    <a href="">Two-Bedroom Townhouse</a>
+    <a href="">Two-Bedroom Flat</a>
+    <a href="Documents/Admin_Offices/Housing/ISS/UV Addendum 2011.pdf" target="_blank">University Village Contract Addendum</a>
+    <a href="">What are the occupancy guidelines at University Village?</a>
+</div>
+
+<div id="university_message" class="message_block span-6">
+    <div class="message_block_top_nav">
+        <div class="message_title_block">University Message</div>
+    </div>
+    <div class="message_block_content" style="height: 180px">
+        <a href="http://www2.byui.edu/magazine/fall2011/features/A_Look_Into_the_Future/videos/employees_role.htm">
+            <img alt="fpo" src="/images/placeholders/message4.jpg">
+        </a>
+    </div>
+</div>
+</div>
+
+
+<section id="content_region">
+   <!-- BEGIN TOP_CONTENT  -->           
+<section id="top_content" class="span-18 last">
+    <div id="page_title"><h2>Master Framework</h2></div>
+</section>
+<!-- END TOP_CONTENT  -->
+
+<!-- BEGIN MAIN_CONTENT  -->
+<section id="main_content" class="span-12 type"><!-- IF NO CONTENT IN RIGHT ASIDE, SPAN-18 LAST -->
+    <h3>Page Types</h1>
+    <ul>
+        <li><a href="/generated-framework/templates/academic_home.html">Academic Home</a></li>
+        <li><a href="/generated-framework/templates/admin_events.html">Admin Events (Activities Area)</a></li>
+        <li><a href="/generated-framework/templates/admin_home.html">Admin Home</a></li>
+        <li><a href="/generated-framework/templates/article.html">Article</a></li>
+        <li><a href="/generated-framework/templates/article_archive.html">Article Archives</a></li>
+        <li><a href="/generated-framework/templates/article_index.html">Article Index</a></li>
+        <li><a href="/generated-framework/templates/audience.html">Audience</a></li>
+        <li><a href="/generated-framework/templates/az_index.html">A-Z Index</a></li>
+        <li><a href="/generated-framework/templates/byui_home_true.html">BYU-Idaho Home</a></li>
+        <li><a href="/generated-framework/templates/content.html">Content</a></li>
+        <li><a href="/generated-framework/templates/employee_index.html">Employee Index</a></li>
+        <li><a href="/generated-framework/templates/employee_individual.html">Employee Individual</a></li>
+        <li><a href="/generated-framework/templates/event.html">Event</a></li>
+        <li><a href="/generated-framework/templates/policy.html">Policy</a></li>
+        <li><a href="/generated-framework/templates/policy_index.html">Policy Index</a></li>
+        <li><a href="/generated-framework/templates/search.html">Search</a></li>
+        <li><a href="/generated-framework/templates/section_index.html">Section Index</a></li>
+    </ul>
+
+    <h3>Components</h3>
+    <ul>
+        <li><a href="/generated-framework/components/image_gallery.html">Image Gallery</a></li>
+        <li>Image Gallery - Gallerific</li>
+        <li>Image Gallery - Responsive</li>
+    </ul>
+
+    <h3>Prototypes/Content Tests</h3>
+    <ul>
+        <li><a href="/generated-framework/prototypes/buildings.html">Buildings</a></li>
+        <li><a href="/generated-framework/prototypes/typography2.html">Typography</a></li>
+    </ul>
+
+
+</section><!-- END TOP_CONTENT  -->
+
+
+
+</section>
+
+<!-- Page-Specific Scripts -->
+<script src="/js/mylibs/accordionNav.js"></script>
+
+
+	</section><!-- end main_content -->
+</div><!-- end global_outside -->
+
+
+        <footer role="contentinfo" class="global-footer">
+
+          <div class="footer-graphic jumbotron"></div>
+
+          <div class="footer-audience">
+            <div class="container">
+              <nav class="audience-nav text-center">
+                <a href="http://www.byui.edu/future-students/" class="btn btn-primary btn-sm">Future Students</a>
+                <a href="https://my.byui.edu/ics" class="btn btn-primary btn-sm">Current Students</a>
+                <a href="https://my.byui.edu/ics" class="btn btn-primary btn-sm">Employees</a>
+                <a href="http://beta.byui.edu/parents" class="btn btn-primary btn-sm">Parents and Family</a>
+                <a href="http://www.byuiconnect.com/s/1085/07-idaho/idaho-start.aspx?gid=4&amp;pgid=61" class="btn btn-primary btn-sm">Alumni</a>
+              </nav><!-- /.audience-nav -->
+              
+            </div><!-- /.container -->
+          </div><!-- /.footer-audience -->
+
+          <div class="footer-links">
+            <div id="footerAccordion" class="container">
+              <div class="row">
+                <nav class="footer-column col-sm-6 col-md-3">
+                  <a class="footer-column-heading" data-toggle="collapse" data-parent="#footerAccordion" href="#collapseContact" >Contact <b class="caret"></b></a>
+                  <address class="no-margin">
+                    <ul id="collapseContact" class="no-margin collapse">
+                      <li>
+                        <span aria-hidden="true" class="icon icon-office">&#160;</span>525 South Center St.<br/>
+                        Rexburg, ID, 83460
+                      </li>
+                      <li>
+                        <span aria-hidden="true" class="icon icon-phone">&#160;</span><a href="tel:12084961411">(208) 496-1411</a>
+                      </li>
+                      <li>
+                        <span aria-hidden="true" class="icon icon-mail">&#160;</span><a href="mailto:ask@byui.edu">ask@byui.edu</a>
+                      </li>
+                      <li>
+                        <span aria-hidden="true" class="icon icon-chat">&#160;</span><a href="http://www.byui.edu/feedback/?cid=fli:192">Feedback</a>
+                      </li>
+                    </ul>
+                  </address>
+                </nav><!-- /.footer-column -->
+                <nav class="footer-column col-sm-6 col-md-3">
+                  <a class="footer-column-heading" data-toggle="collapse" data-parent="#footerAccordion" href="#collapseFollow">Follow <b class="caret"></b></a>
+                  <ul id="collapseFollow" class="footer-social no-margin collapse">
+                    <li><span aria-hidden="true" class="icon icon-facebook">&#160;</span><a href="http://www.byui.edu/social-media/facebook">Facebook</a></li>
+                    <li><span aria-hidden="true" class="icon icon-twitter">&#160;</span><a href="http://www.byui.edu/social-media/twitter">Twitter</a></li>
+                    <li><span aria-hidden="true" class="icon icon-youtube">&#160;</span><a href="http://www.byui.edu/social-media/youtube">Youtube</a></li>
+                    <li><span aria-hidden="true" class="icon icon-linkedin">&#160;</span><a href="http://www.byui.edu/social-media/linkedin">LinkedIn</a></li>
+                  </ul>
+                </nav><!-- /.footer-column -->
+                <nav class="footer-column col-sm-6 col-md-3">
+                  <a href="#collapsePopular" class="footer-column-heading" data-toggle="collapse" data-parent="#footerAccordion">Popular <b class="caret"></b></a>
+                  <ul id="collapsePopular" class="no-margin collapse">
+                    <li><a href="http://web.byui.edu/devotionalsandspeeches/speeches.aspx">Devotionals</a></li>
+                    <li><a href="http://www.byui.edu/financial-services/my-personal-account/i-card">ID Cards</a></li>
+                    <li><a href="http://www.byui.edu/human-resources/employment-opportunities">Jobs and Employment</a></li>
+                    <li><a href="http://byui.universitytickets.com/user_pages/event_listings.aspx">Ticket Office</a></li>
+                    <li><a href="http://web.byui.edu/WardsAndStakes/UnitInfo">Wards and Stakes</a></li>
+                  </ul>
+                </nav><!-- /.footer-column -->
+                <nav class="footer-column col-sm-6 col-md-3">
+                  <a href="#collapseHelp" class="footer-column-heading" data-toggle="collapse" data-parent="#footerAccordion">Help <b class="caret"></b></a>
+                  <ul id="collapseHelp" class="no-margin collapse">
+                    <li><a href="http://www.byui.edu/ask/live-chat/?cid=hli:109">Ask BYUI</a></li>
+                    <li><a href="http://www.byui.edu/disabilities/">Disability Services</a></li>
+                    <li><a href="http://www.byui.edu/information-technology">Technical Help Desk</a></li>
+                    <li><a href="http://www.byui.edu/student-support">Student Support</a></li>
+                  </ul>
+                </nav><!-- /.footer-column -->
+              </div><!-- /.footer-links -->
+
+              
+            </div>
+          </div>
+
+          <div class="footer-brand">
+            <div class="container">
+              <div class="school-branding row text-center">
+                <p>
+                  <a href="http:///www.byu.edu/">BYU Provo</a>&#160;&#160;|&#160;&#160;
+                  <a href="http:///www.byuh.edu/">BYU Hawaii</a>&#160;&#160;|&#160;&#160;
+                  <a href="http://www.ldsbc.edu/">LDS Business College</a>&#160;&#160;|&#160;&#160;
+                  <a href="http://www.byui.edu/online/pathway">Pathway</a>
+                </p>
+              </div><!-- /.school-branding -->
+
+              <div class="copyright row text-center">
+                <a href="http://www.byui.edu/copyright/policy/terms-of-use/?cid=fli:190">Copyright ©2013</a>&#160;&#160;|&#160;&#160;<a href="http://www.byui.edu/legal">Legal Notices</a>
+              </div><!-- /.copyright -->
+
+              <div class="church-branding row text-center">
+                <p>
+                  <a href="http://www.lds.org/"><span class="icon icon-lds-church"></span><span class="sr-only">The Church of Jesus Christ of Latter-Day Saints</span></a>
+                </p>
+              </div><!-- /.church-branding -->
+            </div><!-- /.container -->
+          </div><!-- /.footer-brand -->
+          
+          <!-- 
+            BEGIN INTRUSIVE FEEDBACK BUTTON:
+            THIS BUTTON SHOULD BE REMOVED 
+            AS SOON AS YOU CAN DO SO
+            WITHOUT LOSING YOUR JOB 
+          -->
+          <style>
+          .feedback-toggle {
+            position: fixed;
+            bottom: -2px;
+            right: -2px;
+            display: none;
+            border: 1px solid #fff;
+          }
+          </style>
+          <script>
+            $(function(){
+              $(".feedback-toggle").show();
+            });
+          </script>
+
+          <!-- Button trigger modal -->
+          <a data-toggle="modal" href="#feedbackModal" class="feedback-toggle btn btn-primary hidden-xs"><span class="icon-chat pull-left"></span><span class="pull-left visible-lg visible-xl">&#160;Feedback</span></a>
+
+          <!-- Modal -->
+          <div class="feedback-modal modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#215;</button>
+                  <h4 class="modal-title">We want to hear from you!</h4>
+                </div><!-- /.modal-header -->
+                <div class="modal-body">
+                  <p>BYU-Idaho values suggestions and ideas that can improve the university. Use our Feedback Form to let us know what you think.</p>
+                </div><!-- /.modal-body -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <a href="http://www.byui.edu/feedback/" type="button" class="btn btn-primary"><span class="icon-chat">&#160;</span>Give Feedback</a>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+          <!-- END INTRUSIVE FEEDBACK BUTTON -->
+        </footer> <!-- /.global-footer -->
+
+
+</body>
+</html>
+
