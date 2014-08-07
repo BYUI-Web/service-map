@@ -290,7 +290,7 @@
 <!-- Search Filter Sidebar -->
 <div class="row">
     <!-- Main Content Area -->
-    <section class="col-all-12 col-sm-8 col-md-9 pull-right">
+    <section class="col-all-12 col-sm-8 col-md-9 pull-right" ng-controller="SearchTerm">
         <div class="row col-all-12">
             <!-- Result Filter Buttons -->
             <div class="search-results-filters">
@@ -310,19 +310,16 @@
             <p>Results for: "{{search.term}}"</p>
         </div>
         <div class="media">
-            <div class="media-body search-result">
-                <h4 class="media-heading result-heading"><a href="#">Department of Art</a></h4>
-                <p class="result-abstract">The BYU-Idaho Department of Art provides an aesthetic, conceptual, and technical foundation in the visual arts for students who possess a wide range of interests, experiences, and abilities. </p>
+            <div class="media-body search-result" ng-repeat="service in services">
+                <h4 class="media-heading result-heading"><a href="#">{{service.serviceName}}</a></h4>
+                <p class="result-abstract">{{service.abstract}}</p>
                 <div class="row">
                     <div class="col-all-12 result-contact">                    
                         <div class="">
-                            <span class="icon-office"></span> <a href="#">Spori 317</a>
+                            <span class="icon-office"></span> <a href="#">{{service.office}}</a>
                         </div>
                         <div class="">
-                            <span class="icon-phone"></span> <a href="#">(208) 496-4901</a>
-                        </div>
-                        <div class="">
-                            <span class="icon-mail"></span> <a href="#">whitworthk@byui.edu</a>
+                            <span class="icon-phone"></span> <a href="#">{{service.contact}}</a>
                         </div>
                     </div>
                 </div>

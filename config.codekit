@@ -238,12 +238,32 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/assets\/js\/min\/service-map-ck.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/min\/service-map-ck.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/service-map-ck-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/assets\/js\/modernizr.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/modernizr.js",
 		"outputAbbreviatedPath": "\/assets\/js\/min\/modernizr-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/assets\/js\/service-map.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/service-map.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/service-map-ck.js",
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
@@ -768,11 +788,11 @@
 			"flagValue": -1
 			},
 		"undef": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"unused": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"white": {
