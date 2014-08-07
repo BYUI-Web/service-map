@@ -1,0 +1,1 @@
+angular.module("serviceMapp",[]).controller("SearchTerm",function(e){e.search=[],e.search.term="stuff"});
