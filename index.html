@@ -277,9 +277,9 @@
         </select>
     </div>
     <div class="col-all-12, col-sm-6, col-md-3">
-        <select name="" id="" class="form-control">
-            <option value="">Order by: A-Z</option>
-            <option value="">Order by: Z-A</option>
+        <select ng-model="direction" name="" id="" class="form-control">
+            <option value="" selected>Order by: A-Z</option>
+            <option value="reverse">Order by: Z-A</option>
         </select>
     </div>
 </div> <!-- End Row -->
@@ -311,7 +311,7 @@
 
         <!-- Iterate Results -->
         <div class="media">
-            <div class="media-body search-result" ng-repeat="service in services | filter:query">
+            <div class="media-body search-result" ng-repeat="service in services | filter:query | orderBy: serviceOrder:direction">
                 <h4 class="media-heading result-heading"><a href="#">{{service.serviceName}}</a></h4>
                 <p class="result-abstract">{{service.abstract}}</p>
                 <div class="row">

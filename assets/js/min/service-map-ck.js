@@ -6,4 +6,5 @@ serviceMapp.controller('ServicesSearch', ['$scope', '$http', function($scope, $h
 	$http.get('assets/js/services.json').success(function(data) {
 		$scope.services = data;
 	});
+	$scope.serviceOrder = 'serviceName';
 }]);
