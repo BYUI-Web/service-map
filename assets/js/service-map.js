@@ -1,42 +1,9 @@
-angular.module('serviceMapp', [])
-.controller('SearchTerm', function($scope) {
+var serviceMapp = angular.module('serviceMapp', []);
+
+serviceMapp.controller('SearchTerm', ['$scope', '$http', function($scope, $http) {
 	$scope.search = [];
-	$scope.search.term = "stuff";
-	$scope.services = [
-	{
-		"serviceName":"Department of Art",
-		"sponsor":"Department of Art",
-		"shortName":"art-dep",
-		"url":"http://www.byui.edu/art/",
-		"contactName":"Kathy Whitworth",
-		"office":"Spori 316",
-		"contact":"208.496.4901",
-		"mapUrl":"http://www.byui.edu/maps#SPO",
-		"aliases":"art, design, art department, art program",
-		"abstract":"The BYU-Idaho Department of Art provides an aesthetic, conceptual, and technical foundation in the visual arts for students who possess a wide range of interests, experiences, and abilities."
-	},
-	{
-		"serviceName":"College of Performing and Visual Arts",
-		"sponsor":"College of Performing and Visual Arts",
-		"shortName":"performing-visual-arts",
-		"url":"http://www.byui.edu/performing-visual-arts",
-		"contactName":"Kathy Whitworth",
-		"office":"Spori 316",
-		"contact":"208.496.4901",
-		"mapUrl":"http://www.byui.edu/maps#SPO",
-		"aliases":"art, dance, music, spori, theater",
-		"abstract":"The College of Performing and Visual Arts provide an important means of communication where thoughts, creativity, and expression can be directed to ennoble, uplift, inspire..."
-	},
-	{
-		"serviceName":"Spori Art Gallery",
-		"sponsor":"Department of Art",
-		"shortName":"spo-gal",
-		"url":"http://www.byui.edu/spori-gallery/",
-		"contactName":"Gerald Griffin",
-		"office":"Spori 220",
-		"contact":"208.496.4913",
-		"mapUrl":"http://www.byui.edu/maps#SPO",
-		"aliases":"art, gallery, spori",
-		"abstract":"Jacob Spori Art Gallery will show works of current BYU-Idaho Visual Arts students, selected by the art department faculty."
-	}];
-});
+	$scope.search.term = "art";
+	$http.get('assets/js/services.json').success(function(data) {
+		$scope.services = data;
+	});
+}]);
