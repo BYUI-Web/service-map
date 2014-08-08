@@ -1,1 +1,9 @@
-var serviceMapp=angular.module("serviceMapp",[]);serviceMapp.controller("SearchTerm",["$scope","$http",function(e,s){e.search=[],e.search.term="art",s.get("assets/js/services.json").success(function(s){e.services=s,console.log(e.services)})}]);
+var serviceMapp = angular.module('serviceMapp', []);
+
+serviceMapp.controller('ServicesSearch', ['$scope', '$http', function($scope, $http) {
+	$scope.search = [];
+	$scope.search.term = "art";
+	$http.get('assets/js/services.json').success(function(data) {
+		$scope.services = data;
+	});
+}]);
