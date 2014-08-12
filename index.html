@@ -255,7 +255,7 @@
 <main id="page-content" class="col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 row">
     <!-- Application Wrapper, gives Angular scope to this part of the DOM -->
 <div class="application-wrapper"  ng-controller="ServicesSearch">
-    
+    <div class="stuff">stuff is  here</div>
 
 <!-- Basic Search Header -->
 <div class="row">
@@ -295,9 +295,9 @@
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     art
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success" role="alert" ng-repeat="query in query">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    design
+                    {{query}}
                 </div>
             </div>
         </div>
@@ -309,10 +309,11 @@
 
         <!-- Iterate Results -->
         <div class="media">
-            <div class="media-body search-result" ng-repeat="service in services | filter:query | orderBy: serviceOrder:direction">
+            <div class="media-body search-result" ng-repeat="service in services track by $index | filter:query | orderBy: serviceOrder:direction">
                 <h4 class="media-heading result-heading"><a href="#">{{service.serviceName}}</a></h4>
                 <p class="result-abstract">{{service.abstract}}</p>
                 <p class="result-sponsor">Sponsor: <a href="#">{{service.sponsor}}</a></p>
+                <p class="result-aliases">Tags: <a href="#">{{service.aliases}}</a></p>
                 <div class="row">
                     <div class="col-all-12 result-contact">                    
                         <div class="">
@@ -553,6 +554,7 @@
         </footer> <!-- /.global-footer -->
     
 <script src="assets/js/bootstrap.min.js"></script>
+<script src="//localhost:35729/livereload.js"></script>
 </body>
 </html>
 
