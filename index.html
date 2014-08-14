@@ -313,7 +313,7 @@
                 <h4 class="media-heading result-heading"><a href="#">{{service.serviceName}}</a></h4>
                 <p class="result-abstract">{{service.abstract}}</p>
                 <p class="result-sponsor">Sponsor: <a href="#">{{service.sponsor}}</a></p>
-                <p class="result-aliases">Tags: <a href="#">{{service.aliases}}</a></p>
+                <p class="result-aliases">Tags: <a href="#" class="result-tags" ng-repeat="alias in service.aliases">{{alias}}</a></p>
                 <div class="row">
                     <div class="col-all-12 result-contact">                    
                         <div class="">
