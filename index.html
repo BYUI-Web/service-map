@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html class="no-js" ng-app="serviceMapp">
 <head>
 	<meta charset="utf-8">
@@ -255,7 +255,6 @@
 <main id="page-content" class="col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 row">
     <!-- Application Wrapper, gives Angular scope to this part of the DOM -->
 <div class="application-wrapper"  ng-controller="ServicesSearch">
-    <div class="stuff">stuff is  here</div>
 
 <!-- Basic Search Header -->
 <div class="row">
@@ -293,10 +292,6 @@
             <div class="search-results-filters">
                 <div class="alert alert-success" role="alert">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    art
-                </div>
-                <div class="alert alert-success" role="alert" ng-repeat="query in query">
-                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     {{query}}
                 </div>
             </div>
@@ -304,12 +299,12 @@
 
         <!-- Search Results -->
         <div class="results-notice" >
-            <p>Results for: "{{search.term}}"</p>
+            <p>Results for: "{{query}}"</p>
         </div>
 
         <!-- Iterate Results -->
         <div class="media">
-            <div class="media-body search-result" ng-repeat="service in services track by $index | filter:query | orderBy: serviceOrder:direction">
+            <div class="media-body search-result" ng-repeat="service in services | filter:query:{aliasObject.selected:true} | orderBy: serviceOrder:direction">
                 <h4 class="media-heading result-heading"><a href="#">{{service.serviceName}}</a></h4>
                 <p class="result-abstract">{{service.abstract}}</p>
                 <p class="result-sponsor">Sponsor: <a href="#">{{service.sponsor}}</a></p>
@@ -346,59 +341,24 @@
         <div class="panel panel-default">
             <div class="panel-heading">Filters</div>
             <div class="panel-body row">
-                <div class="search-filter col-all-6 col-xs-12">
-                    <div class="search-filter-type">Department</div>
-                    <div class="checkbox">
-                        <label for="">
-                            <input type="checkbox">
-                            Department of Art
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label for="">
-                            <input type="checkbox">
-                            College of Performing and Visual Arts
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label for="">
-                            <input type="checkbox">
-                            Spori Art Gallery
-                        </label>
-                    </div> 
+              <div class="search-filter col-all-6 col-xs-12">
+                <div class="search-filter-type">Tags</div>
+                <div class="checkbox" ng-repeat="aliasObject in aliasObjects">
+                  <label for="">
+                      <input type="checkbox" value="{{aliasObject.name}}" ng-model="aliasObject.selected">
+                      {{aliasObject.name}}
+                  </label>
                 </div>
-                <div class="search-filter col-all-6 col-xs-12">
-                    <div class="search-filter-type">Tags</div>
-                    <div class="checkbox">
-                        <label for="">
-                            <input type="checkbox">
-                            art
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label for="">
-                            <input type="checkbox">
-                            design
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label for="">
-                            <input type="checkbox">
-                            theater
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label for="">
-                            <input type="checkbox">
-                            dance
-                        </label>
-                    </div> <div class="checkbox">
-                        <label for="">
-                            <input type="checkbox">
-                            music
-                        </label>
-                    </div> 
+              </div>
+              <div class="search-filter col-all-6 col-xs-12">
+                <div class="search-filter-type">Keywords</div>
+                <div class="checkbox">
+                  <label for="">
+                      <input type="checkbox" value="student" ng-model="query">
+                      student
+                  </label>
                 </div>
+              </div>
             </div>
         </div>
     </aside> <!-- End Column -->
