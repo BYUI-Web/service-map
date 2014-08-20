@@ -3,7 +3,7 @@ var serviceMapp = angular.module('serviceMapp', []);
 serviceMapp.controller('ServicesSearch', ['$scope', '$http', function($scope, $http) {
 	// $scope.search = [];
 	// $scope.search.term = "art";
-	$http.get('assets/js/services.json').success(function(data) {
+	$http.get('data/services.json').success(function(data) {
 		var data = angular.fromJson(data); // Parse JSON data
 		$scope.services = data; // Add data to scope
 		$scope.aliasList = [];
