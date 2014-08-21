@@ -274,6 +274,7 @@
     <div class="col-all-12, col-xs-4">
         <div class="search-input-container">
           <select ng-model="serviceOrder" name="" id="" class="form-control">
+            <option value="" selected="selected">Sorting Options</option>
             <option value="serviceName">Sort by: Name</option>
             <option value="office">Sort by: Department</option>
           </select>
@@ -289,12 +290,13 @@
     <section class="col-all-12 col-xs-8 pull-right">
         <div class="row col-all-12">
             <!-- Result Filter Buttons -->
-            <div class="search-results-filters">
+            <!-- Saving this here as a design placeholder, they can be used as a method to track/remove filters being applied. I haven't figured out how to conditionally display them. -->
+            <!-- <div class="search-results-filters">
                 <div class="alert alert-success" role="alert">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     {{query}}
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- Search Results -->
@@ -323,7 +325,8 @@
         </div>
 
         <!-- Pagination -->
-        <div class="results-pagination pull-right">
+        <!-- Also here as a placeholder, I don't actually have an idea of how to apply pagination yet in this prototype, though from an interaction perspective I believe it would be best to show about 5 results at a time. -->
+        <!-- <div class="results-pagination pull-right">
             <ul class="pagination">
               <li><a href="#">&laquo;</a></li>
               <li class="active"><a href="#">1</a></li>
@@ -333,7 +336,7 @@
               <li><a href="#">5</a></li>
               <li><a href="#">&raquo;</a></li>
             </ul>
-        </div>
+        </div>  -->
     </section> <!-- End Column -->
 
     <!-- Search Filter Sidebar -->
@@ -350,16 +353,8 @@
                   </label>
                 </div>
               </div>
-              <div class="search-filter col-all-6 col-xs-12">
-                <div class="search-filter-type">Keywords</div>
-                <div class="checkbox">
-                  <label for="">
-                      <input type="checkbox" value="student" ng-model="query">
-                      student
-                  </label>
-                </div>
-              </div>
-            </div>
+              
+            </div> <!-- End Panel Body -->
         </div>
     </aside> <!-- End Column -->
 </div> <!-- End Row -->
