@@ -306,7 +306,7 @@
 
         <!-- Iterate Results -->
         <div class="media">
-            <div class="media-body search-result" ng-repeat="service in services | filter:query:{aliasObject.selected:true} | orderBy: serviceOrder:direction">
+            <div class="media-body search-result" ng-repeat="service in services | filter: query | filter: tagFilter | orderBy: serviceOrder:direction">
                 <h4 class="media-heading result-heading"><a href="#">{{service.serviceName}}</a></h4>
                 <p class="result-abstract">{{service.abstract}}</p>
                 <p class="result-sponsor">Sponsor: <a href="#">{{service.sponsor}}</a></p>
@@ -345,13 +345,11 @@
             <div class="panel-heading">Filters</div>
             <div class="panel-body row">
               <div class="search-filter col-all-6 col-xs-12">
-                <div class="search-filter-type">Tags</div>
-                <div class="checkbox" ng-repeat="aliasObject in aliasObjects">
-                  <label for="">
-                      <input type="checkbox" value="{{aliasObject.name}}" ng-model="aliasObject.selected">
-                      {{aliasObject.name}}
-                  </label>
-                </div>
+                <!-- <div class="search-filter-type">Tags</div> -->
+                <select class="form-control" ng-model="tagFilter">
+                  <option value="">Tags</option>
+                  <option value="{{aliasObject.name}}" ng-repeat="aliasObject in aliasObjects">{{aliasObject.name}}</option>
+                </select>
               </div>
               
             </div> <!-- End Panel Body -->
