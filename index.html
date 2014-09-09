@@ -280,6 +280,7 @@
           </select>
         </div>
     </div>
+
 </div> <!-- End Row -->
 
 <hr>
@@ -291,12 +292,12 @@
         <div class="row col-all-12">
             <!-- Result Filter Buttons -->
             <!-- Saving this here as a design placeholder, they can be used as a method to track/remove filters being applied. I haven't figured out how to conditionally display them. -->
-            <!-- <div class="search-results-filters">
-                <div class="alert alert-success" role="alert">
-                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    {{query}}
-                </div>
-            </div> -->
+          <div class="search-results-filters">
+              <div class="alert alert-success" role="alert">
+                  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  {{query}}
+              </div>
+          </div>
         </div>
 
         <!-- Search Results -->
@@ -344,12 +345,37 @@
         <div class="panel panel-default">
             <div class="panel-heading">Filters</div>
             <div class="panel-body row">
+
+              <!-- Working Filter -->
               <div class="search-filter col-all-6 col-xs-12">
                 <!-- <div class="search-filter-type">Tags</div> -->
                 <select class="form-control" ng-model="tagFilter">
                   <option value="">Tags</option>
                   <option value="{{aliasObject.name}}" ng-repeat="aliasObject in aliasObjects">{{aliasObject.name}}</option>
                 </select>
+              </div>
+              
+              <!-- Preferred Filter Design -->
+              <div class="search-filter col-all-6 col-xs-12">
+                  <div class="search-filter-type">Department</div>
+                  <div class="checkbox">
+                      <label for="">
+                          <input type="checkbox">
+                          Department of Art
+                      </label>
+                  </div>
+                  <div class="checkbox">
+                      <label for="">
+                          <input type="checkbox">
+                          College of Performing and Visual Arts
+                      </label>
+                  </div>
+                  <div class="checkbox">
+                      <label for="">
+                          <input type="checkbox">
+                          Spori Art Gallery
+                      </label>
+                  </div> 
               </div>
               
             </div> <!-- End Panel Body -->
