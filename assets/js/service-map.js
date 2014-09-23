@@ -1,42 +1,39 @@
-var serviceMapp = angular.module('serviceMapp', []);
+var serviceMap = angular.module('serviceMap', []);
 
-serviceMapp.controller('ServicesSearch', ['$scope', '$http', function($scope, $http) {
-	// $scope.search = [];
-	// $scope.search.term = "art";
-	$http.get('data/services.json').success(function(data) {
-		var data = angular.fromJson(data); // Parse JSON data
-		$scope.services = data; // Add data to scope
-		$scope.aliasList = [];
-		$scope.query = "art";
+serviceMap.controller('ServicesSearch', ['$scope', '$http', "$filter",
+    function ($scope, $http) {
+        $scope.services = [];
+        $scope.servicesPerPage = 1;
+        $scope.currentPage = 1;
+        $scope.query = "";
+        
+        $http.get('data/services.json').success(function (data) {
+            $scope.services = data.services; // Add data to scope
+            $scope.allTags = data.allTags;
+            $scope.numPages = function() {
+                var filteredServices = $filter("filter")($scope.services, function($value) {
+                    return ;
+                })
+                return Math.ceil($scope.services.length / $scope.servicesPerPage);
+            };
+        });
 
-		// Loop through services
-		angular.forEach($scope.services, function(service, key) { 
+        $scope.range = function (n) {
+            return new Array(n);
+        };
 
-			// split string into array of strings
-			service.aliases = service.aliases.split(', ');
-			// console.log(service);
-
-			// add aliases to aliasList
-			angular.forEach (service.aliases, function(alias, key) {
-				$scope.aliasList.push(alias);
-				// console.log($scope.aliasList);
-			});
-		});
-
-		// filter aliasList for uniqueness
-		$scope.aliasList = $scope.aliasList.filter(function(elem, pos, self) {
-			return self.indexOf(elem) == pos;
-		});
-		// console.log("Filtered:");
-		// console.log($scope.aliasList);
-
-		$scope.aliasObjects = [];
-		for (var i = 0; i < $scope.aliasList.length; i++) {
-			var aliasObject = {};
-			aliasObject.name = $scope.aliasList[i];
-			aliasObject.selected = false;
-			$scope.aliasObjects.push(aliasObject);
-		}
-		console.log($scope.aliasObjects);
-	});
+        $scope.changePage = function (n) {
+            if (n >= 1 && n <= $scope.numPages()) {
+                $scope.currentPage = n;
+            }
+        };
 }]);
+
+//We already have a limitTo filter built-in to angular,
+//let's make a startFrom filter
+serviceMap.filter('startFrom', function () {
+    return function (input, start) {
+        start = +start; //parse to int
+        return input.slice(start);
+    }
+});

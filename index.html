@@ -1,5 +1,5 @@
   <!DOCTYPE html>
-<html class="no-js" ng-app="serviceMapp">
+<html class="no-js" ng-app="serviceMap">
 <head>
 	<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -307,11 +307,11 @@
 
         <!-- Iterate Results -->
         <div class="media">
-            <div class="media-body search-result" ng-repeat="service in services | filter: query | filter: tagFilter | orderBy: serviceOrder:direction">
+            <div class="media-body search-result" ng-repeat="service in services | filter: query | filter: tagFilter | startFrom:currentPage*servicesPerPage-1 | limitTo:servicesPerPage |  orderBy: serviceOrder:direction">
                 <h4 class="media-heading result-heading"><a href="#">{{service.serviceName}}</a></h4>
                 <p class="result-abstract">{{service.abstract}}</p>
                 <p class="result-sponsor">Sponsor: <a href="#">{{service.sponsor}}</a></p>
-                <p class="result-aliases">Tags: <a href="#" class="result-tags" ng-repeat="alias in service.aliases">{{alias}}</a></p>
+                <p class="result-aliases">Tags: <a href="#" class="result-tags" ng-repeat="alias in service.tags">{{alias}}</a></p>
                 <div class="row">
                     <div class="col-all-12 result-contact">                    
                         <div class="">
@@ -329,13 +329,15 @@
         <!-- Also here as a placeholder, I don't actually have an idea of how to apply pagination yet in this prototype, though from an interaction perspective I believe it would be best to show about 5 results at a time. -->
         <div class="results-pagination pull-right">
             <ul class="pagination">
-              <li><a href="#">&laquo;</a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&raquo;</a></li>
+              <li ng-class="{ 'disabled': currentPage == 1 }" ng-click="changePage(currentPage - 1)">
+                  <a href="#">&laquo;</a>
+              </li>
+              <li ng-class="{ 'active': currentPage == $index + 1 }" ng-repeat="i in range(numPages()) track by $index" ng-click="changePage($index + 1)">
+                  <a href="#">{{ $index + 1 }}</a>
+              </li>
+              <li ng-class="{ 'disabled': currentPage == numPages() }" ng-click="changePage(currentPage + 1)">
+                  <a href="#">&raquo;</a>
+              </li>
             </ul>
         </div> 
     </section> <!-- End Column -->
@@ -351,29 +353,17 @@
                 <!-- <div class="search-filter-type">Tags</div> -->
                 <select class="form-control" ng-model="tagFilter">
                   <option value="">Tags</option>
-                  <option value="{{aliasObject.name}}" ng-repeat="aliasObject in aliasObjects">{{aliasObject.name}}</option>
+                  <option value="{{ tag }}" ng-repeat="tag in allTags">{{ tag }}</option>
                 </select>
               </div>
               
               <!-- Preferred Filter Design -->
               <div class="search-filter col-all-6 col-xs-12">
                   <div class="search-filter-type">Department</div>
-                  <div class="checkbox">
-                      <label for="">
-                          <input type="checkbox">
-                          Department of Art
-                      </label>
-                  </div>
-                  <div class="checkbox">
-                      <label for="">
-                          <input type="checkbox">
-                          College of Performing and Visual Arts
-                      </label>
-                  </div>
-                  <div class="checkbox">
-                      <label for="">
-                          <input type="checkbox">
-                          Spori Art Gallery
+                  <div class="checkbox" ng-repeat="service in services">
+                      <label for="service-{{$index}}">
+                          <input id="service-{{$index}}" type="checkbox">
+                          {{service.sponsor}}
                       </label>
                   </div> 
               </div>
