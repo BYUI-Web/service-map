@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
-        
+
         uglify: {
             dev: {
                 options: {
@@ -19,9 +19,9 @@ module.exports = function (grunt) {
                 files: {
                     "assets/js/service-map.min.js": "assets/js/service-map.js"
                 }
-            }    
+            }
         },
-        
+
         cssmin: {
             prod: {
                 files: {
@@ -29,15 +29,15 @@ module.exports = function (grunt) {
                 }
             }
         },
-        
+
         copy: {
             dev: {
                 files: {
                     "assets/css/services.min.css": "assets/css/services.css"
                 }
-            }  
+            }
         },
-        
+
         connect: {
             server: {
                 options: {
@@ -52,6 +52,15 @@ module.exports = function (grunt) {
                     base: ".",
                     keepalive: true
                 }
+            }
+        },
+
+        git_deploy: {
+            prod: {
+                options: {
+                    url: "https://github.com/BYUI-Web/service-map.git"
+                },
+                src: "*"
             }
         },
 
@@ -80,9 +89,10 @@ module.exports = function (grunt) {
     });
 
     require("load-grunt-tasks")(grunt);
-    
+
     grunt.registerTask("default", ["uglify:prod", "cssmin:prod"]);
     grunt.registerTask('dev', ['connect:server', "uglify:dev", "copy:dev", 'watch']);
     grunt.registerTask("prod-test", ["uglify:prod", "cssmin:prod", "connect:keep"]);
+    grunt.registerTask("gh-pages", ["git_deploy"]);
 
 };
