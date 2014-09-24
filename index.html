@@ -293,9 +293,9 @@
             <!-- Result Filter Buttons -->
             <!-- Saving this here as a design placeholder, they can be used as a method to track/remove filters being applied. I haven't figured out how to conditionally display them. -->
           <div class="search-results-filters">
-              <div class="alert alert-success" role="alert">
-                  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                  {{query}}
+              <div class="alert alert-success" role="alert" ng-repeat="(tag,selected) in allTags | isSelected">
+                  <button type="button" class="close" data-dismiss="alert" ng-click="allTags[tag] = false"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  {{tag}}
               </div>
           </div>
         </div>
@@ -307,7 +307,7 @@
 
         <!-- Iterate Results -->
         <div class="media">
-            <div class="media-body search-result" ng-repeat="service in services | filter: query | filter: tagFilter | startFrom:currentPage*servicesPerPage-1 | limitTo:servicesPerPage |  orderBy: serviceOrder:direction">
+            <div class="media-body search-result" ng-repeat="service in services | filter: query | filterTags: allTags | startFrom:(currentPage - 1) * servicesPerPage | limitTo:servicesPerPage |  orderBy: serviceOrder:direction">
                 <h4 class="media-heading result-heading"><a href="#">{{service.serviceName}}</a></h4>
                 <p class="result-abstract">{{service.abstract}}</p>
                 <p class="result-sponsor">Sponsor: <a href="#">{{service.sponsor}}</a></p>
@@ -351,10 +351,13 @@
               <!-- Working Filter -->
               <div class="search-filter col-all-6 col-xs-12">
                 <!-- <div class="search-filter-type">Tags</div> -->
-                <select class="form-control" ng-model="tagFilter">
-                  <option value="">Tags</option>
-                  <option value="{{ tag }}" ng-repeat="tag in allTags">{{ tag }}</option>
-                </select>
+                <div class="search-filter-type">Tags</div>
+                  <div class="checkbox" ng-repeat="(tag,selected) in allTags">
+                      <label for="tag-{{$index}}">
+                          <input id="tag-{{$index}}" type="checkbox" ng-model="allTags[tag]">
+                          {{tag}}
+                      </label>
+                  </div>
               </div>
               
               <!-- Preferred Filter Design -->
