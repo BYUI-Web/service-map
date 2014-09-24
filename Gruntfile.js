@@ -1,32 +1,88 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-  grunt.initConfig({
+    grunt.initConfig({
 
-    pkg: grunt.file.readJSON('package.json'),
+        pkg: grunt.file.readJSON('package.json'),
+        
+        uglify: {
+            dev: {
+                options: {
+                    compress: false,
+                    beautify: true,
+                    mangle: false
+                },
+                files: {
+                    "assets/js/service-map.min.js": "assets/js/service-map.js"
+                }
+            },
+            prod: {
+                files: {
+                    "assets/js/service-map.min.js": "assets/js/service-map.js"
+                }
+            }    
+        },
+        
+        cssmin: {
+            prod: {
+                files: {
+                    "assets/css/services.min.css": "assets/css/services.css"
+                }
+            }
+        },
+        
+        copy: {
+            dev: {
+                files: {
+                    "assets/css/services.min.css": "assets/css/services.css"
+                }
+            }  
+        },
+        
+        connect: {
+            server: {
+                options: {
+                    port: 5100,
+                    base: '.',
+                    livereload: true
+                }
+            },
+            keep: {
+                options: {
+                    port: 5100,
+                    base: ".",
+                    keepalive: true
+                }
+            }
+        },
 
-    connect: {
-      server: {
-        options: {
-          port: 5100,
-          base: '.',
-          livereload: true
-        }
-      }
-    },
+        watch: {
+            js: {
+                files: ['./assets/js/*.js', './assets/js/*.json', "!./assets/js/*.min.js"],
+                options: {
+                    livereload: true
+                },
+                tasks: ["uglify:dev"]
+            },
+            css: {
+                files: ["./assets/css/*.css", "!./assets/css/*.min.css"],
+                options: {
+                    livereload: true
+                },
+                tasks: ["copy:dev"]
+            },
+            html: {
+                files: ["**/*.html"],
+                options: {
+                    livereload: true
+                }
+            }
+        },
+    });
 
-    watch: {
-      another: {
-        files: ['*', './assets/js/*.js', './assets/js/*.json'],
-        options: {
-          livereload: true
-        }
-      }
-    },
-  });
-
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-
-  grunt.registerTask('default', ['connect', 'watch']);
+    require("load-grunt-tasks")(grunt);
+    
+    grunt.registerTask("default", ["uglify:prod", "cssmin:prod"]);
+    grunt.registerTask('dev', ['connect:server', "uglify:dev", "copy:dev", 'watch']);
+    grunt.registerTask("prod-test", ["uglify:prod", "cssmin:prod", "connect:keep"]);
 
 };
