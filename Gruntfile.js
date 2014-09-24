@@ -35,7 +35,20 @@ module.exports = function (grunt) {
                 files: {
                     "assets/css/services.min.css": "assets/css/services.css"
                 }
+            },
+            build: {
+                src: ["./**", "!./build"],
+                dest: "build/"
             }
+        },
+        
+        clean: {
+            build: {
+                options: {
+                    force: true
+                },
+                src: "build"
+            }  
         },
 
         connect: {
@@ -90,7 +103,7 @@ module.exports = function (grunt) {
 
     require("load-grunt-tasks")(grunt);
 
-    grunt.registerTask("default", ["uglify:prod", "cssmin:prod"]);
+    grunt.registerTask("default", ["uglify:prod", "cssmin:prod", "copy:build"]);
     grunt.registerTask('dev', ['connect:server', "uglify:dev", "copy:dev", 'watch']);
     grunt.registerTask("prod-test", ["uglify:prod", "cssmin:prod", "connect:keep"]);
     grunt.registerTask("gh-pages", ["git_deploy"]);
