@@ -389,7 +389,7 @@
 
                         <!-- Iterate Results -->
                         <div class="media">
-                            <div class="media-body search-result" ng-repeat="service in services | filter: query | filterTags: allTags:departments | startFrom:(currentPage - 1) * servicesPerPage | limitTo:servicesPerPage |  orderBy: serviceOrder:direction">
+                            <div class="media-body search-result" ng-repeat="service in services | filter: query | filterTags: allTags:departments | orderBy: serviceOrder:direction | startFrom:(currentPage - 1) * servicesPerPage | limitTo:servicesPerPage">
                                 <h4 class="media-heading result-heading"><a href="#">{{service.serviceName}}</a></h4>
                                 <p class="result-abstract">{{service.abstract}}</p>
                                 <p class="result-sponsor">Sponsor: <a href="#">{{service.sponsor}}</a>
