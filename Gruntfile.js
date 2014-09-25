@@ -37,7 +37,7 @@ module.exports = function (grunt) {
                 }
             },
             build: {
-                src: ["./**", "!./build"],
+                src: ["./**", "!./build/**", "!./node_modules/**"],
                 dest: "build/"
             }
         },
@@ -103,9 +103,9 @@ module.exports = function (grunt) {
 
     require("load-grunt-tasks")(grunt);
 
-    grunt.registerTask("default", ["uglify:prod", "cssmin:prod", "copy:build"]);
+    grunt.registerTask("default", ["uglify:prod", "cssmin:prod"]);
     grunt.registerTask('dev', ['connect:server', "uglify:dev", "copy:dev", 'watch']);
     grunt.registerTask("prod-test", ["uglify:prod", "cssmin:prod", "connect:keep"]);
-    grunt.registerTask("gh-pages", ["git_deploy"]);
+    grunt.registerTask("gh-pages", ["copy:build", "git_deploy", "clean:build"]);
 
 };
