@@ -73,7 +73,7 @@ module.exports = function (grunt) {
                 options: {
                     url: "https://github.com/BYUI-Web/service-map.git"
                 },
-                src: "*"
+                src: "build"
             }
         },
 
