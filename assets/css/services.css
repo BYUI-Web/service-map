@@ -46,6 +46,9 @@
 .search-collapse .search-filter {
     margin: 15px 0 24px;
 }
+.result-contact [class^="icon-"] {
+    margin-right: 5px;
+}
 @media (max-width: 768px) {
     .panel-heading[data-toggle='collapse'] {
         cursor: pointer;

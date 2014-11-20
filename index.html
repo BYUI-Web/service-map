@@ -347,23 +347,22 @@
                             </div>
                             <div class="panel-body row collapse search-collapse">
 
-                                <!-- Working Filter -->
-                                <div class="search-filter col-all-12 col-lg-12 col-md-12 col-sm-12 col-xs-6">
-                                    <!-- <div class="search-filter-type">Tags</div> -->
-                                    <div class="search-filter-type">Tags</div>
-                                    <div class="checkbox" ng-repeat="(tag,selected) in allTags">
-                                        <label for="tag-{{$index}}">
-                                            <input id="tag-{{$index}}" type="checkbox" ng-model="allTags[tag]">{{tag}}
-                                        </label>
-                                    </div>
-                                </div>
-
                                 <!-- Preferred Filter Design -->
                                 <div class="search-filter col-all-12 col-lg-12 col-md-12 col-sm-12 col-xs-6">
                                     <div class="search-filter-type">Department</div>
                                     <div class="checkbox" ng-repeat="(department, selected) in departments">
                                         <label for="service-{{$index}}">
                                             <input id="service-{{$index}}" type="checkbox" ng-model="departments[department]">{{department}}
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <!-- Audience filter -->
+                                <div class="search-filter col-all-12 col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                                    <div class="search-filter-type">Audience</div>
+                                    <div class="checkbox" ng-repeat="(audience, selected) in audiences">
+                                        <label for="audience-{{$index}}">
+                                            <input id="audience-{{$index}}" type="checkbox" ng-model="audiences[audience]">{{audience}}
                                         </label>
                                     </div>
                                 </div>
@@ -379,30 +378,39 @@
                             <!-- Result Filter Buttons -->
                             <!-- Saving this here as a design placeholder, they can be used as a method to track/remove filters being applied. I haven't figured out how to conditionally display them. -->
                             <div class="search-results-filters">
-                                <div class="alert alert-success" role="alert" ng-repeat="(tag,selected) in allTags | isSelected">
-                                    <button type="button" class="close" data-dismiss="alert" ng-click="allTags[tag] = false"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                <div class="alert alert-success" role="alert" ng-repeat="(department,selected) in departments | isSelected">
+                                    <button type="button" class="close" data-dismiss="alert" ng-click="departments[department] = false"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                                     </button>
-                                    {{tag}}
+                                    {{department}}
+                                </div>
+                                <div class="alert alert-success" role="alert" ng-repeat="(audience,selected) in audiences | isSelected">
+                                    <button type="button" class="close" data-dismiss="alert" ng-click="audiences[audience] = false"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                    </button>
+                                    {{audience}}
                                 </div>
                             </div>
                         </div>
 
                         <!-- Iterate Results -->
                         <div class="media">
-                            <div class="media-body search-result" ng-repeat="service in services | filter: query | filterTags: allTags:departments | orderBy: serviceOrder:direction | startFrom:(currentPage - 1) * servicesPerPage | limitTo:servicesPerPage">
-                                <h4 class="media-heading result-heading"><a href="#">{{service.serviceName}}</a></h4>
-                                <p class="result-abstract">{{service.abstract}}</p>
-                                <p class="result-sponsor">Sponsor: <a href="#">{{service.sponsor}}</a>
+                            <div class="media-body search-result" ng-repeat="service in services | filter: query | filterTags: departments:audiences | orderBy: serviceOrder:direction | startFrom:(currentPage - 1) * servicesPerPage | limitTo:servicesPerPage">
+                                <h4 class="media-heading result-heading"><a href="{{service.webAddressUrl}}">{{service.titleForService}}</a></h4>
+                                <p class="result-abstract">{{service.other}}</p>
+                                <p class="result-sponsor">Sponsor: <a href="#">{{service.owner}}</a>
                                 </p>
-                                <p class="result-aliases">Tags: <a href="#" class="result-tags" ng-repeat="alias in service.tags">{{alias}}</a>
-                                </p>
-                                <div class="row">
+                                    <div class="row">
                                     <div class="col-all-12 result-contact">
-                                        <div class="">
-                                            <span class="icon-office"></span>  <a href="#">{{service.office}}</a>
+                                        <div class="" ng-if="service.building">
+                                            <span class="icon-office"></span>  <a href="#">{{service.building}} Room {{service.room}}</a>
                                         </div>
-                                        <div class="">
-                                            <span class="icon-phone"></span>  <a href="#">{{service.contact}}</a>
+                                        <div class="" ng-if="service.primaryPhoneNumber">
+                                            <span class="icon-phone"></span><a href="tel:{{service.primaryPhoneNumber}}">{{service.primaryPhoneNumber}}</a>
+                                        </div>
+                                        <div class="" ng-if="service.email">
+                                            <span class="icon-mail"></span><a href="mailto:{{service.email}}">{{service.email}}</a>
+                                        </div>
+                                        <div class="" ng-if="service.livechat">
+                                            <span class="icon-chat"></span><a href="service.livechat">Live Chat</a>
                                         </div>
                                     </div>
                                 </div>

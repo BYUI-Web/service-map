@@ -4,21 +4,21 @@ serviceMap.controller('ServicesSearch', ['$scope', "$filter", "dataService",
 
     function ($scope, $filter, dataService) {
         $scope.services = [];
-        $scope.servicesPerPage = 1;
+        $scope.servicesPerPage = 20;
         $scope.currentPage = 1;
         $scope.query = "";
 
         dataService.getData(function (data) {
             $scope.services = data.services; // Add data to scope
-            $scope.allTags = data.tags;
             $scope.departments = data.departments;
+            $scope.audiences = data.audiences;
 
             $scope.numPages = function () {
                 var filteredServices = $scope.services;
                 if ($scope.query !== "") {
                     filteredServices = $filter("filter")(filteredServices, $scope.query);
                 }
-                filteredServices = $filter("filterTags")(filteredServices, $scope.allTags, $scope.departments);
+                filteredServices = $filter("filterTags")(filteredServices, $scope.departments, $scope.audiences);
                 return Math.ceil(filteredServices.length / $scope.servicesPerPage);
             };
         });
@@ -58,96 +58,98 @@ serviceMap.filter("isSelected", function () {
     }
 });
 
-serviceMap.filter("filterTags", ["$filter", function ($filter) {
-    return function (input, tags, departments) {
-        var selectedTags = [],
-            selectedDepartments = [],
-            response = input,
-            found = false,
-            numSelectedTags;
+serviceMap.filter("filterTags", ["$filter",
+    function ($filter) {
+        return function (input, departments, audiences) {
+            var selectedDepartments = [],
+                selectedAudiences = [],
+                response = input,
+                found = false,
+                numSelectedTags;
 
-        if (input === undefined) {
-            return input;
-        }
+            if (input === undefined) {
+                return input;
+            }
 
-
-        if (tags !== undefined) {
-            Object.keys(tags).forEach(function (tag) {
-                if (tags[tag] !== false) {
-                    selectedTags.push(tag);
-                }
-            });
-        }
-
-        if (departments !== undefined) {
-            Object.keys(departments).forEach(function (department) {
-                if (departments[department] !== false) {
-                    selectedDepartments.push(department);
-                }
-            });
-        }
-
-        if (selectedTags.length > 0) {
-            response = $filter("filter")(response, function(value) {
-                var found = false;
-                selectedTags.forEach(function(tag) {
-                    if (value.tags.indexOf(tag) !== -1) {
-                        found = true;
-                        return true;
+            if (departments !== undefined) {
+                Object.keys(departments).forEach(function (department) {
+                    if (departments[department] !== false) {
+                        selectedDepartments.push(department);
                     }
                 });
-                return found;
-            });
-        }
-        
-        if (selectedDepartments.length > 0) {
-            response = $filter("filter")(response, function(value) {
-                var found = false;
-                selectedDepartments.forEach(function(department) {
-                    if (value.sponsor === department) {
-                        found = true;
-                        return true;
+            }
+            
+            if (audiences !== undefined) {
+                Object.keys(audiences).forEach(function(audience) {
+                    if (audiences[audience] !== false) {
+                        selectedAudiences.push(audience);
                     }
+                })
+            }
+
+            if (selectedDepartments.length > 0) {
+                response = $filter("filter")(response, function (value) {
+                    var found = false;
+                    selectedDepartments.forEach(function (department) {
+                        if (value.owner === department) {
+                            found = true;
+                            return true;
+                        }
+                    });
+                    return found;
                 });
-                return found;
-            });
+            }
+            
+            if (selectedAudiences.length > 0) {
+                response = $filter("filter")(response, function(value) {
+                    var found = false;
+                    selectedAudiences.forEach(function(audience) {
+                        if (value.audiences.indexOf(audience) !== -1) {
+                            found = true;
+                            return true;
+                        }
+                    });
+                    return found;
+                });
+            }
+            return response;
         }
-        return response;
-    }
 }]);
 
 serviceMap.factory("dataService", ["$http",
         function ($http) {
         var service = {};
 
-        function extractAllTags(services) {
-            var tags = {};
-            services.forEach(function (service) {
-                service.tags.forEach(function (tag) {
-                    if (tags[tag] === undefined) {
-                        tags[tag] = false;
-                    }
-                });
-            });
-            return tags;
-        }
-
         function extractAllDepartments(services) {
             var departments = {};
 
             services.forEach(function (service) {
-                if (departments[service.sponsor] === undefined) {
-                    departments[service.sponsor] = false;
+                if (departments[service.owner] === undefined) {
+                    departments[service.owner] = false;
                 }
             });
 
             return departments;
         }
 
+        function extractAllAudiences(services) {
+            var audiences = {};
+
+            services.forEach(function (service) {
+                var serviceAudiences = service.audiences.split(",");
+                serviceAudiences.forEach(function (audience) {
+                    if (audiences[audience] === undefined) {
+                        audiences[audience] = false;
+                    }
+                });
+            });
+            return audiences;
+        }
+
         service.getData = function (cb) {
-            $http.get('data/services.json').success(function (data) {
-                data.tags = extractAllTags(data.services);
+            $http.get('data/export.json').success(function (data) {
                 data.departments = extractAllDepartments(data.services);
+                data.audiences = extractAllAudiences(data.services);
                 cb(data);
             }).error(cb);
         };
