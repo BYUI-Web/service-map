@@ -1,4 +1,5 @@
 module.exports = function (grunt) {
+    var appHtml = grunt.file.read("assets/html/app.html");
 
     grunt.initConfig({
 
@@ -39,15 +40,59 @@ module.exports = function (grunt) {
             build: {
                 src: ["./**", "!./build/**", "!./node_modules/**"],
                 dest: "build/"
+            },
+            ingeniux: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ["assets/html/app.html", "assets/js/service-map.min.js", "assets/css/services.min.css", "data/services.json"],
+                        dest: "ingeniux/"
+                    }
+                ]
             }
         },
-        
+
         clean: {
             build: {
                 options: {
                     force: true
                 },
                 src: "build"
+            }
+        },
+        
+        replace: {
+            build: {
+                src: ["assets/html/layout.html"],
+                dest: ["index.html"],
+                replacements: [
+                    {
+                        from: "<!-- render app.html here DO NOT DELETE THIS LINE! -->",
+                        to: appHtml
+                    }
+                ]
+            },
+            ingeniux: {
+                src: ["ingeniux/service-map.min.js"],
+                dest: ["ingeniux/service-map.min.js"],
+                replacements: [
+                    {
+                        from: "data/services.json",
+                        to: "documents/service-map/services.json"
+                    }
+                ]
+            }
+        },
+        
+        file_append: {
+            ingeniux: {
+                files: {
+                    "ingeniux/app.html": {
+                        append: "<script src='prebuilt/stylenew/js/libs/angular.min.js'></script><script src='documents/service-map/service-map.min.js'></script><link rel='stylesheet' href='documents/service-map/services.min.css' />",
+                        input: "ingeniux/app.html"
+                    }
+                }
             }  
         },
 
@@ -103,9 +148,10 @@ module.exports = function (grunt) {
 
     require("load-grunt-tasks")(grunt);
 
-    grunt.registerTask("default", ["uglify:prod", "cssmin:prod"]);
-    grunt.registerTask('dev', ['connect:server', "uglify:dev", "copy:dev", 'watch']);
-    grunt.registerTask("prod-test", ["uglify:prod", "cssmin:prod", "connect:keep"]);
-    grunt.registerTask("gh-pages", ["copy:build", "git_deploy", "clean:build"]);
+    grunt.registerTask("default", ["uglify:prod", "cssmin:prod", "replace:build", "ingeniux"]);
+    grunt.registerTask('dev', ['connect:server', "uglify:dev", "replace:build", "copy:dev", 'watch']);
+    grunt.registerTask("prod-test", ["default", "connect:keep"]);
+    grunt.registerTask("ingeniux", ["copy:ingeniux", "file_append:ingeniux", "replace:ingeniux"]);
+    grunt.registerTask("gh-pages", ["default", "copy:build", "git_deploy", "clean:build"]);
 
 };

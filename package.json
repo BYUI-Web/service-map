@@ -13,7 +13,9 @@
     "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "~0.4.3",
+    "grunt-file-append": "0.0.5",
     "grunt-git-deploy": "^0.1.1",
+    "grunt-text-replace": "^0.3.12",
     "load-grunt-tasks": "^0.6.0",
     "matchdep": "~0.1.2"
   }
