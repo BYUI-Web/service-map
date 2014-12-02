@@ -139,6 +139,7 @@ module.exports = function (grunt) {
             },
             html: {
                 files: ["**/*.html"],
+                tasks: ["replace:build", "copy:dev"],
                 options: {
                     livereload: true
                 }

@@ -353,7 +353,8 @@
                                     <div class="search-filter-type">Department</div>
                                     <div class="checkbox" ng-repeat="(department, selected) in departments">
                                         <label for="service-{{$index}}">
-                                            <input id="service-{{$index}}" type="checkbox" ng-model="departments[department]">{{department}}
+                                            <input id="service-{{$index}}" type="checkbox" ng-model="departments[department]" 
+                                                   ng-click="changePage(1)">{{department}}
                                         </label>
                                     </div>
                                 </div>
@@ -363,7 +364,8 @@
                                     <div class="search-filter-type">Audience</div>
                                     <div class="checkbox" ng-repeat="(audience, selected) in audiences">
                                         <label for="audience-{{$index}}">
-                                            <input id="audience-{{$index}}" type="checkbox" ng-model="audiences[audience]">{{audience}}
+                                            <input id="audience-{{$index}}" type="checkbox" ng-model="audiences[audience]" 
+                                                   ng-click="changePage(1)">{{audience}}
                                         </label>
                                     </div>
                                 </div>
