@@ -350,25 +350,35 @@
 
                                 <!-- Preferred Filter Design -->
                                 <div class="search-filter col-all-12 col-lg-12 col-md-12 col-sm-12 col-xs-6">
-                                    <div class="search-filter-type">Department</div>
-                                    <div class="checkbox" ng-repeat="(department, selected) in departments">
+                
+                                    <a class="search-filter-type services-filter-type" data-toggle="collapse" href="#department-tags" 
+                                         aria-expanded="false">Department <span class="caret"></span></a>
+                                    <div id="department-tags" class = "collapse">
+                                      <div class="checkbox" ng-repeat="(department, selected) in departments">
                                         <label for="service-{{$index}}">
                                             <input id="service-{{$index}}" type="checkbox" ng-model="departments[department]" 
                                                    ng-click="changePage(1)">{{department}}
                                         </label>
+                                      </div>
                                     </div>
+                                 
                                 </div>
-                                
+                              
                                 <!-- Audience filter -->
                                 <div class="search-filter col-all-12 col-lg-12 col-md-12 col-sm-12 col-xs-6">
-                                    <div class="search-filter-type">Audience</div>
-                                    <div class="checkbox" ng-repeat="(audience, selected) in audiences">
+    
+                                    <a class="search-filter-type services-filter-type" data-toggle="collapse" href="#audience-tags"
+                                         aria-expanded="false">Audience <span class="caret"></span></a>
+                                    <div id="audience-tags" class = "collapse">
+                                      <div class="checkbox" ng-repeat="(audience, selected) in audiences">
                                         <label for="audience-{{$index}}">
                                             <input id="audience-{{$index}}" type="checkbox" ng-model="audiences[audience]" 
                                                    ng-click="changePage(1)">{{audience}}
                                         </label>
+                                      </div>
                                     </div>
-                                </div>
+                                 </div>
+                           
 
                             </div>
                             <!-- End Panel Body -->
